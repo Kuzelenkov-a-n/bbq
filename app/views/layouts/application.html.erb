@@ -19,10 +19,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <ul class="navbar-nav">
-        <li class="nav-item nav-link"><%= link_to "Link1", "/path1", class: 'nav-item'  %></li>
-        <li class="nav-item nav-link"><%= link_to "Link2", "/path2"  %></li>
-        <li class="nav-item nav-link"><%= link_to "Link3", "/path3"  %></li>
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Профиль', current_user, class: '' %></li>
+          <li><%= link_to 'Выйти', destroy_user_session_path, class: '', :method => :delete %></li>
+        <% else %>
+          <li><%= link_to 'Войти', new_user_session_path, class: '' %></li>
+          <li><%= link_to 'Зарегистрироваться', new_user_registration_path, class: '' %></li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -31,6 +35,13 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-9">
+      <% if flash.any? %>
+        <div class="content-wrapper buffer-both">
+          <% flash.each do |name, message| %>
+            <%= content_tag :div, message, class: "flash-#{name}" %>
+          <% end %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </div>
