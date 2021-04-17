@@ -11,6 +11,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'uglifier'
 gem 'rails-i18n'
 gem 'jquery-rails'
+gem 'rails_12factor'
+
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
