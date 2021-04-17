@@ -8,6 +8,9 @@ gem 'puma', '~> 5.0'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'uglifier'
+gem 'rails-i18n'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
