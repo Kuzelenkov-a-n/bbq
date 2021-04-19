@@ -10,6 +10,8 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'uglifier'
 gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'russian'
 gem 'jquery-rails'
 gem 'rails_12factor'
 
