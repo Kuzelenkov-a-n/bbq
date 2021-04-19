@@ -70,9 +70,8 @@ ru:
         address: "Адрес"
         datetime: "Дата проведения"
         description: "Описание события"
-      controllers:
-        events:
-          created: "Событие сохранено"
-          updated: "Данные обновлены"
-          destroyed: "Событие удалено"
-
+  controllers:
+    events:
+      created: "Событие сохранено"
+      updated: "Данные события обновлены"
+      destroyed: "Событие удалено"
