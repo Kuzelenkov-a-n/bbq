@@ -17,18 +17,6 @@
 </div>
 
 <div class="mb-3">
-  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-    <%= link_to "Не получили инструкций по подтверждению?", new_confirmation_path(resource_name) %>
-  <% end %>
-</div>
-
-<div class="mb-3">
-  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-    <%= link_to "Не получили инструкции по разблорировке?", new_unlock_path(resource_name) %>
-  <% end %>
-</div>
-
-<div class="mb-3">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to "Зарегистрироваться с #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %>
