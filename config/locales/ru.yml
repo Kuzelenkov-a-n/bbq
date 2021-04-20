@@ -70,6 +70,14 @@ ru:
         address: "Адрес"
         datetime: "Дата проведения"
         description: "Описание события"
+      comment:
+        body: "Комментарий"
+        user_name: "Никнейм"
+        user_email: "E-mail"
+      subscription:
+        user_name: "Никнейм"
+        user_email: "E-mail"
+
   controllers:
     events:
       created: "Событие сохранено"
@@ -77,6 +85,23 @@ ru:
       destroyed: "Событие удалено"
     users:
       updated: "Данные пользователя обновлены"
+    comments:
+      destroyed: "Комментарий удален"
+      created: "Ваш комментарий добавлен"
+      error: "Ошибка с комментарием"
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
+
   app:
     name: "Шашлыки"
     company: "Хороший программист"
+
+  comments:
+    comment:
+      destroy_confirm: "Вы уверены, что хотите удалить этот комментарий?"
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
