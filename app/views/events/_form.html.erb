@@ -1,5 +1,5 @@
 <%= form_for @event, html: { multipart: true } do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+  <%= render partial: 'partials/form_errors', locals: { model: @event } %>
 
   <div class="form mt-3">
     <%= f.label :title, class: 'font-weight-bold' %>
