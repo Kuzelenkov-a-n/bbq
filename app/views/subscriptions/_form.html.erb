@@ -3,12 +3,12 @@
 
   <% unless user_signed_in? %>
     <div class="field mt-3">
-      <%= f.label :user_name, class: "font-weight-bold"   %>
+      <%= f.label :user_name, class: 'font-weight-bold' %>
       <%= f.text_field :user_name, class: 'form-control' %>
     </div>
 
     <div class="field mt-3">
-      <%= f.label :user_email, class: "font-weight-bold"   %>
+      <%= f.label :user_email, class: 'font-weight-bold' %>
       <%= f.text_field :user_email, class: 'form-control' %>
     </div>
   <% end %>

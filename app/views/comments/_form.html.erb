@@ -2,13 +2,13 @@
   <%= render partial: 'partials/form_errors', locals: { model: comment } %>
 
   <div class="field mt-3">
-    <%= f.label :body, class: "font-weight-bold"  %>
+    <%= f.label :body, class: 'font-weight-bold' %>
     <%= f.text_area :body, class: 'form-control' %>
   </div>
 
   <% unless user_signed_in? %>
     <div class="field mt-3">
-      <%= f.label :user_name, class: "font-weight-bold"  %>
+      <%= f.label :user_name, class: 'font-weight-bold' %>
       <%= f.text_field :user_name, class: 'form-control' %>
     </div>
   <% end %>

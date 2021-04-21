@@ -2,22 +2,22 @@
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="form mt-3">
-    <%= f.label :title, class: "font-weight-bold" %>
+    <%= f.label :title, class: 'font-weight-bold' %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form mt-3">
-    <%= f.label :address, class: "font-weight-bold" %>
+    <%= f.label :address, class: 'font-weight-bold' %>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
 
   <div class="form mt-3">
-    <%= f.label :datetime, class: "font-weight-bold" %>
+    <%= f.label :datetime, class: 'font-weight-bold' %>
     <p><%= f.text_field :datetime, class: 'form-control datepicker-here' %></p>
   </div>
 
   <div class="form mt-3">
-    <%= f.label :description, class: "font-weight-bold" %>
+    <%= f.label :description, class: 'font-weight-bold' %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
