@@ -6,7 +6,6 @@ gem 'devise'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 gem 'puma', '~> 5.0'
 gem 'webpacker', '~> 5.0'
-gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'uglifier'
 gem 'rails-i18n'
@@ -14,6 +13,7 @@ gem 'devise-i18n'
 gem 'russian'
 gem 'jquery-rails'
 gem 'rails_12factor'
+gem 'air-datepicker-rails'
 
 group :production do
   gem 'pg'

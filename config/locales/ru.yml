@@ -75,6 +75,7 @@ ru:
         user_name: "Никнейм"
         user_email: "E-mail"
       subscription:
+        user: "Пользователь"
         user_name: "Никнейм"
         user_email: "E-mail"
 
