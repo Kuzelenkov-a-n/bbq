@@ -4,7 +4,7 @@ import "channels"
 import "styles/application.scss"
 import "bootstrap/dist/js/bootstrap"
 import "air-datepicker/dist/js/datepicker.min"
-import "../scripts/min_date"
+import "../scripts/custom_datepicker"
 
 Rails.start()
 ActiveStorage.start()

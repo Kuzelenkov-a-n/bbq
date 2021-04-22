@@ -29,8 +29,9 @@ class Subscription < ApplicationRecord
   end
 
   def check_email
+    return if user.present?
     if User.find_by(email: user_email).present?
-      errors.add(:email, 'уже существует')
+      errors.add(:user_email, 'уже существует') unless errors.added?(:user_email, 'уже существует')
     end
   end
 end
