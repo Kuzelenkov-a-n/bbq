@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $('#event_datetime').datepicker({
         timepicker: true,
         minDate: new Date()
