@@ -1,6 +1,6 @@
 $(function () {
-    $('#event_datetime').datepicker({
-        timepicker: true,
-        minDate: new Date()
-    });
+  $('#event_datetime').datepicker({
+    timepicker: true,
+    minDate: new Date()
+  });
 });
