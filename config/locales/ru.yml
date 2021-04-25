@@ -61,6 +61,7 @@ ru:
     attributes:
       user:
         name: "Имя"
+        avatar: "Аватар"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"

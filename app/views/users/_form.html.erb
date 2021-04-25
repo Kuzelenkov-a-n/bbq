@@ -11,6 +11,12 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
 
+  <div class="form mt-3">
+    <%= f.label :avatar, class: 'font-weight-bold' %>
+    <%= image_tag(@user.avatar.thumb.url) if @user.avatar?%>
+    <%= f.file_field :avatar %>
+  </div>
+
   <div class="actions mt-3 mb-3">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
   </div>
