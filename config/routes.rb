@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :subscriptions
   devise_for :users
   root "events#index"
 
@@ -9,5 +8,4 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
-
 end

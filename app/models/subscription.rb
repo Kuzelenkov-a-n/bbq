@@ -4,13 +4,16 @@ class Subscription < ApplicationRecord
 
   validates :event, presence: true
 
-  validates :user_name, presence: true, unless: -> { user.present? }
-  validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, unless: -> { user.present? }
+  with_options if: -> { user.present? } do
+    validates :user, uniqueness: { scope: :event_id }
+  end
 
-  validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
-  validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
-
-  validate :check_email
+  with_options unless: -> { user.present? } do
+    validates :user_name, presence: true
+    validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :user_email, uniqueness: { scope: :event_id }
+    validate :checking_exists_email
+  end
 
   def user_name
     if user.present?
@@ -28,10 +31,11 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def check_email
-    return if user.present?
+  private
+
+  def checking_exists_email
     if User.find_by(email: user_email).present?
-      errors.add(:user_email, 'уже существует') unless errors.added?(:user_email, 'уже существует')
+      errors.add(:user_email, :already_exists)
     end
   end
 end

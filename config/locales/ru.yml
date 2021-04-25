@@ -79,6 +79,13 @@ ru:
         user_name: "Никнейм"
         user_email: "E-mail"
 
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              already_exists: "уже существует"
+
   controllers:
     events:
       created: "Событие сохранено"
