@@ -2,8 +2,6 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :event, presence: true
-
   with_options if: -> { user.present? } do
     validates :user, uniqueness: { scope: :event_id }
   end
@@ -12,8 +10,9 @@ class Subscription < ApplicationRecord
     validates :user_name, presence: true
     validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :user_email, uniqueness: { scope: :event_id }
-    validate :checking_exists_email
   end
+
+  validate :email_not_taken
 
   def user_name
     if user.present?
@@ -33,8 +32,8 @@ class Subscription < ApplicationRecord
 
   private
 
-  def checking_exists_email
-    if User.find_by(email: user_email).present?
+  def email_not_taken
+    if user&.email.present? || user_email.present?
       errors.add(:user_email, :already_exists)
     end
   end
