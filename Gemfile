@@ -12,6 +12,7 @@ gem 'devise-i18n'
 gem 'russian'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 group :production do
   gem 'pg'
