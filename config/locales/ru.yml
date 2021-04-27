@@ -79,6 +79,15 @@ ru:
         user: "Пользователь"
         user_name: "Никнейм"
         user_email: "E-mail"
+      photo:
+        photo: "Фотография"
+
+    models:
+      user: "Пользователь"
+      event: "Событие"
+      subscription: "Подписка"
+      comment: "Комментарий"
+      photo: "Фотография"
 
     errors:
       models:
