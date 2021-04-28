@@ -43,6 +43,6 @@ class Subscription < ApplicationRecord
   end
 
   def user_not_event_author
-    errors.add(:user_name, :self_event) if user.persisted?
+    errors.add(:user_name, :self_event) if user == event.user
   end
 end
