@@ -95,6 +95,9 @@ ru:
           attributes:
             user_email:
               already_exists: "уже существует"
+            user_name:
+              already_exists: "уже существует"
+              self_event: "создателя события (подписка на своё событие невозможна)"
 
   controllers:
     events:
