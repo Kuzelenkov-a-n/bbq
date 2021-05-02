@@ -12,7 +12,6 @@ class Subscription < ApplicationRecord
     validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :user_email, uniqueness: { scope: :event_id }
     validate :email_not_taken
-    validate :name_not_exist
   end
 
 
@@ -36,10 +35,6 @@ class Subscription < ApplicationRecord
 
   def email_not_taken
     errors.add(:user_email, :already_exists) if User.exists?(email: user_email)
-  end
-
-  def name_not_exist
-    errors.add(:user_name, :already_exists) if User.exists?(name: user_name)
   end
 
   def user_not_event_author
