@@ -18,6 +18,6 @@ class EventMailer < ApplicationMailer
     @photo = photo
     @event = event
 
-    mail to: email, subject: I18n.t('event_mailer.photo.subject', event_photo: photo.photo.url)
+    mail to: email, subject: I18n.t('event_mailer.photo.subject', event_title: event.title)
   end
 end

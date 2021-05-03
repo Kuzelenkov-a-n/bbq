@@ -149,7 +149,7 @@ ru:
       datetime: "Состоится"
       owner: "Организатор"
     photo:
-      subject: "Новая фотография %{event_photo}"
+      subject: "Новая фотография @%{event_title}"
       title: "Новая фотография"
       name: "Имя"
       email: "Email"
