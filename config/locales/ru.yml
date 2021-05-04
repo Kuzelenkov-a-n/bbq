@@ -71,6 +71,7 @@ ru:
         address: "Адрес"
         datetime: "Дата проведения"
         description: "Описание события"
+        pincode: "Пин-код доступа"
       comment:
         body: "Комментарий"
         user_name: "Никнейм"
@@ -105,6 +106,7 @@ ru:
       created: "Событие сохранено"
       updated: "Данные события обновлены"
       destroyed: "Событие удалено"
+      wrong_pincode: "Неверный пинкод!"
     users:
       updated: "Данные пользователя обновлены"
     comments:

@@ -21,6 +21,11 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
+  <div class="form mt-3">
+    <%= f.label :pincode, class: 'font-weight-bold' %>
+    <%= f.text_field :pincode, class: 'form-control' %>
+  </div>
+
   <div class="actions mt-3 mb-3">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>
