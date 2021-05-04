@@ -80,7 +80,8 @@ ru:
         user_name: "Никнейм"
         user_email: "E-mail"
       photo:
-        photo: "Фотография"
+        photo: "Фото"
+        user: "Пользователь"
 
     models:
       user: "Пользователь"
