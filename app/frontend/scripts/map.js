@@ -1,7 +1,7 @@
 ymaps.ready(init);
 var myMap;
 
-$(document).on('turbolinks:load', function init(){
+function init(){
   address = document.getElementById('map').getAttribute('data-address');
 
   myMap = new ymaps.Map("map", {
@@ -29,4 +29,4 @@ $(document).on('turbolinks:load', function init(){
       alert('Ошибка при определении местоположения');
     }
   );
-});
+}

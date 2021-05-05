@@ -6,6 +6,8 @@ import "styles/application.scss"
 import "bootstrap/dist/js/bootstrap"
 import "air-datepicker/dist/js/datepicker.min"
 import "../scripts/custom_datepicker"
+import "ekko-lightbox"
+import "../scripts/lightbox"
 import "../scripts/map"
 
 Rails.start()
