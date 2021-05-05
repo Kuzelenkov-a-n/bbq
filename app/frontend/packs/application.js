@@ -6,6 +6,7 @@ import "styles/application.scss"
 import "bootstrap/dist/js/bootstrap"
 import "air-datepicker/dist/js/datepicker.min"
 import "../scripts/custom_datepicker"
+import "../scripts/map"
 
 Rails.start()
 Turbolinks.start()
