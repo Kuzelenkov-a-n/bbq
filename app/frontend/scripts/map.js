@@ -1,5 +1,6 @@
+document.addEventListener("turbolinks:load", init);
+
 ymaps.ready(init);
-var myMap;
 
 function init(){
   address = document.getElementById('map').getAttribute('data-address');
