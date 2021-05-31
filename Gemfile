@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
 gem 'mailjet'
+gem 'listen', '~> 3.3'
 
 group :production do
   gem 'pg'
