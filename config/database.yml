@@ -23,6 +23,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  user: <%= Rails.application.credentials.dig(:production, :USER) %>
-  password: <%= Rails.application.credentials.dig(:production, :PASSWORD) %>
-  database: <%= Rails.application.credentials.dig(:production, :DATABASE) %>
+  user: <%= Rails.application.credentials.dig(:production, :user) %>
+  password: <%= Rails.application.credentials.dig(:production, :password) %>
+  database: <%= Rails.application.credentials.dig(:production, :database) %>

@@ -57,13 +57,13 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "bbq_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:HOST] }
+  config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:host] }
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: '587',
-    user_name: Rails.application.credentials.gmail[:GMAIL_USERNAME],
-    password: Rails.application.credentials.gmail[:GMAIL_PASSWORD],
+    user_name: Rails.application.credentials.yandex[:yandex_username],
+    password: Rails.application.credentials.yandex[:yandex_password],
     authentication: 'plain',
     enable_starttls_auto: true
   }
