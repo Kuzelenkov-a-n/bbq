@@ -60,8 +60,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:host] }
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: '587',
+    address: 'smtp.yandex.ru',
+    port: '465',
     user_name: Rails.application.credentials.yandex[:yandex_username],
     password: Rails.application.credentials.yandex[:yandex_password],
     authentication: 'plain',
