@@ -1,4 +1,10 @@
 class EventPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
+
   def create?
     user.present?
   end
@@ -8,24 +14,28 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user || record.pincode.blank?
+    return true if event_owner?
+    return true if record.pincode.blank?
+    return true if record.pincode_valid?(cookies["events_#{record.id}_pincode"])
+
+    false
   end
 
   def edit?
-    record.user == user
+    event_owner?
   end
 
   def update?
-    record.user == user
+    event_owner?
   end
 
   def destroy?
-    record.user == user
+    event_owner?
   end
 
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  private
+
+  def event_owner?
+    record.user == user
   end
 end
