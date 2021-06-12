@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
   before_action :set_comment, only: [:destroy]
+  after_action :verify_authorized, only: %i[create destroy]
 
   def create
     @new_comment = @event.comments.build(comment_params)
     @new_comment.user = current_user
+
+    authorize @new_comment
 
     if @new_comment.save
       notify_subscribers(@event, @new_comment)
@@ -15,15 +18,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    message = { notice: I18n.t('controllers.comments.destroyed') }
+    authorize @comment
 
-    if current_user_can_edit?(@comment)
-      @comment.destroy!
-    else
-      message = { alert: I18n.t('controllers.comments.error') }
-    end
+    @comment.destroy
 
-    redirect_to @event, message
+    redirect_to @event, notice: I18n.t('controllers.comments.destroyed')
   end
 
   private

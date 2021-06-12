@@ -13,7 +13,7 @@
             <p><%= @event.description %></p>
           </div>
 
-          <% if current_user_can_edit?(@event) %>
+          <% if policy(@event).edit? %>
             <div class="buffer-both">
               <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
               <%= link_to 'Удалить событие', event_path(@event), data: { confirm: 'Вы уверены?' }, method: :delete, class: 'btn btn-warning my-1' %>
@@ -34,7 +34,7 @@
     <div class="col-md-8">
       <div class="event-photos">
         <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+          <%= render partial: 'photos/photo', collection: policy_scope(@event.photos.except(@new_photo)) %>
         </div>
 
         <div class="event-photo-form">
@@ -47,7 +47,7 @@
 
         <div class="buffer-both">
           <%= render partial: 'comments/comment',
-                     collection: @event.comments.except(@new_comment) %>
+                     collection: policy_scope(@event.comments.except(@new_comment)) %>
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@
           <div>
             <p>
               <%= render partial: 'subscriptions/subscription',
-                         collection: @event.subscriptions.except(@new_subscription) %>
+                         collection: policy_scope(@event.subscriptions.except(@new_subscription)) %>
             </p>
           </div>
         </div>
