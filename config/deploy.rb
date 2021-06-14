@@ -28,7 +28,6 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 set :assets_roles, :webpack
 set :assets_prefix, 'packs'
-set :assets_manifests, lambda { [release_path.join('public', fetch(:assets_prefix), 'manifest.json*')] }
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
