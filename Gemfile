@@ -17,6 +17,7 @@ gem 'fog-aws'
 gem 'mailjet'
 gem 'listen', '~> 3.3'
 gem 'pundit', '~> 2.1'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :production do
   gem 'pg'
