@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
     authorize @new_comment
 
-    if @new_comment.save
+    if check_captcha(@new_comment) && @new_comment.save
       notify_subscribers(@event, @new_comment)
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
