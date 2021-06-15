@@ -11,9 +11,9 @@ class CommentsController < ApplicationController
 
     if check_captcha(@new_comment) && @new_comment.save
       notify_subscribers(@event, @new_comment)
-      redirect_to @event, notice: I18n.t('controllers.comments.created')
+      redirect_to @event, notice: I18n.t("controllers.comments.created")
     else
-      render 'events/show', alert: I18n.t('controllers.comments.error')
+      render "events/show", alert: I18n.t("controllers.comments.error")
     end
   end
 
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
     @comment.destroy
 
-    redirect_to @event, notice: I18n.t('controllers.comments.destroyed')
+    redirect_to @event, notice: I18n.t("controllers.comments.destroyed")
   end
 
   private

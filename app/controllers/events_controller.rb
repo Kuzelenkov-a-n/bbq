@@ -19,8 +19,8 @@ class EventsController < ApplicationController
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
   rescue Pundit::NotAuthorizedError
-    flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
-    render 'password_form'
+    flash.now[:alert] = I18n.t("controllers.events.wrong_pincode") if params[:pincode].present?
+    render "password_form"
   end
 
   def new
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.update(event_params)
-      redirect_to @event, notice: I18n.t('controllers.events.updated')
+      redirect_to @event, notice: I18n.t("controllers.events.updated")
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
     authorize @event
 
     @event.destroy
-    redirect_to events_path, notice: I18n.t('controllers.events.destroyed')
+    redirect_to events_path, notice: I18n.t("controllers.events.destroyed")
   end
 
   private

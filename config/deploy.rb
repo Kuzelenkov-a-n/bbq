@@ -24,10 +24,10 @@ set :deploy_to, "/home/deploy/apps/bbq"
 append :linked_files, "config/database.yml", "config/credentials/production.key"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", 'public/uploads'
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads"
 
 set :assets_roles, :webpack
-set :assets_prefix, 'packs'
+set :assets_prefix, "packs"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

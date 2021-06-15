@@ -11,9 +11,9 @@ class SubscriptionsController < ApplicationController
 
     if check_captcha(@new_subscription) && @new_subscription.save
       EventMailer.subscription(@event, @new_subscription).deliver_later
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+      redirect_to @event, notice: I18n.t("controllers.subscriptions.created")
     else
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+      render "events/show", alert: I18n.t("controllers.subscriptions.error")
     end
   end
 
@@ -22,7 +22,7 @@ class SubscriptionsController < ApplicationController
 
     @subscription.destroy
 
-    redirect_to @event, notice: I18n.t('controllers.subscriptions.destroyed')
+    redirect_to @event, notice: I18n.t("controllers.subscriptions.destroyed")
   end
 
   private

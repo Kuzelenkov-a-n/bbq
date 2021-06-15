@@ -1,11 +1,11 @@
 <div class="event-photo buffer-both">
-  <% trash_icon = link_to fa_icon('trash-o'), event_photo_path(photo.event, photo),
-                     method: :delete, data: { confirm: 'Точно удалить фото?' } %>
+  <% trash_icon = link_to fa_icon("trash-o"), event_photo_path(photo.event, photo),
+                     method: :delete, data: { confirm: "Точно удалить фото?" } %>
 
-  <% photo_author = "Добавил #{render partial: 'users/user', object: photo.user}" %>
+  <% photo_author = "Добавил #{render partial: "users/user", object: photo.user}" %>
 
   <% photo_author << trash_icon if policy(photo).destroy? %>
 
   <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: { toggle: "lightbox", title: photo_author, gallery: "photo-album" } %>
-  Добавил: <%= render partial: 'users/user', object: photo.user %>
+  Добавил: <%= render partial: "users/user", object: photo.user %>
 </div>

@@ -1,21 +1,21 @@
 <%= form_for [@event, comment] do |f| %>
-  <%= render partial: 'partials/form_errors', locals: { model: comment } %>
+  <%= render partial: "partials/form_errors", locals: { model: comment } %>
 
   <div class="field mt-3">
-    <%= f.label :body, class: 'font-weight-bold' %>
-    <%= f.text_area :body, class: 'form-control' %>
+    <%= f.label :body, class: "font-weight-bold" %>
+    <%= f.text_area :body, class: "form-control" %>
   </div>
 
   <% unless user_signed_in? %>
     <div class="field mt-3">
-      <%= f.label :user_name, class: 'font-weight-bold' %>
-      <%= f.text_field :user_name, class: 'form-control' %>
+      <%= f.label :user_name, class: "font-weight-bold" %>
+      <%= f.text_field :user_name, class: "form-control" %>
     </div>
   <% end %>
 
   <%= recaptcha_tags unless current_user.present? %>
 
   <div class="actions mt-3 mb-3">
-    <%= f.submit 'Отправить', class: 'btn btn-primary' %>
+    <%= f.submit "Отправить", class: "btn btn-primary" %>
   </div>
 <% end %>

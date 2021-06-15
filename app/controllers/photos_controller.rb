@@ -11,9 +11,9 @@ class PhotosController < ApplicationController
 
     if @new_photo.save
       notify_subscribers(@event, @new_photo)
-      redirect_to @event, notice: I18n.t('controllers.photos.created')
+      redirect_to @event, notice: I18n.t("controllers.photos.created")
     else
-      render 'events/show', alert: I18n.t('controllers.photos.error')
+      render "events/show", alert: I18n.t("controllers.photos.error")
     end
   end
 
@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
 
     @photo.destroy
 
-    redirect_to @event, notice: I18n.t('controllers.photos.destroyed')
+    redirect_to @event, notice: I18n.t("controllers.photos.destroyed")
   end
 
   private

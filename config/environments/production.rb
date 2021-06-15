@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = 'http://assets.example.com'
@@ -60,11 +60,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:host] }
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.smtp_settings = {
-    address: 'smtp.yandex.ru',
-    port: '465',
+    address: "smtp.yandex.ru",
+    port: "465",
     user_name: Rails.application.credentials.yandex[:yandex_username],
     password: Rails.application.credentials.yandex[:yandex_password],
-    authentication: 'plain',
+    authentication: "plain",
     enable_starttls_auto: true
   }
 
