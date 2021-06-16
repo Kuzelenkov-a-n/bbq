@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
     authorize @new_subscription
 
     if check_captcha(@new_subscription) && @new_subscription.save
-      EventMailer.subscription(@event, @new_subscription).deliver_later
+      SendEmailJob.perform_later(@event, @new_subscription)
       redirect_to @event, notice: I18n.t("controllers.subscriptions.created")
     else
       render "events/show", alert: I18n.t("controllers.subscriptions.error")
