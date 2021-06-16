@@ -29,6 +29,8 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 set :assets_roles, :webpack
 set :assets_prefix, "packs"
 
+after "deploy:restart", "resque:restart"
+
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
