@@ -20,6 +20,9 @@ gem "pundit", "~> 2.1"
 gem "recaptcha", require: "recaptcha/rails"
 gem "resque", "~> 1.27.4"
 
+gem "omniauth"
+gem "omniauth-facebook"
+
 group :production do
   gem "pg"
 end
