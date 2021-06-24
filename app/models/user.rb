@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: %i[facebook vkontakte]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -29,7 +29,7 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
-  def self.find_for_facebook_oauth(access_token)
+  def self.find_for_provider_oauth(access_token)
     email = access_token.info.email
     user = where(email: email).first
 
@@ -37,10 +37,19 @@ class User < ApplicationRecord
 
     provider = access_token.provider
     id = access_token.extra.raw_info.id
-    url = "https://facebook.com/#{id}"
+
+    case provider
+    when "facebook"
+      url = "https://facebook.com/#{id}"
+      user_name = access_token.info.name
+    when "vkontakte"
+      url = "https://vk.com/id#{id}"
+      user_name = access_token.extra.raw_info.first_name
+    end
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.email = email
+      user.name = user_name
       user.password = Devise.friendly_token.first(16)
     end
   end

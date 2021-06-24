@@ -71,6 +71,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.delivery_method = :letter_opener
-
-  config.hosts << "0f745f41a786.ngrok.io"
 end
