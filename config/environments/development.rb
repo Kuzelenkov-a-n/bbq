@@ -72,5 +72,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.delivery_method = :letter_opener
 
-  config.hosts << "lvh.me"
+  config.hosts << "0f745f41a786.ngrok.io"
 end

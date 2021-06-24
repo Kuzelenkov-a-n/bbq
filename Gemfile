@@ -22,6 +22,7 @@ gem "resque", "~> 1.27.4"
 
 gem "omniauth"
 gem "omniauth-facebook"
+gem "omniauth-rails_csrf_protection"
 
 group :production do
   gem "pg"
