@@ -15,20 +15,6 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  private
-
-  def set_name
-    self.name = "Товарищ №#{rand(777)}" if name.blank?
-  end
-
-  def link_subscriptions
-    Subscription.where(user_id: nil, user_email: email).update_all(user_id: id)
-  end
-
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
-
   def self.find_for_provider_oauth(access_token)
     email = access_token.info.email
     user = where(email: email).first
@@ -55,5 +41,19 @@ class User < ApplicationRecord
       user.remote_avatar_url = user_avatar
       user.password = Devise.friendly_token.first(16)
     end
+  end
+
+  private
+
+  def set_name
+    self.name = "Товарищ №#{rand(777)}" if name.blank?
+  end
+
+  def link_subscriptions
+    Subscription.where(user_id: nil, user_email: email).update_all(user_id: id)
+  end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
   end
 end
