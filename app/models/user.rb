@@ -42,14 +42,17 @@ class User < ApplicationRecord
     when "facebook"
       url = "https://facebook.com/#{id}"
       user_name = access_token.info.name
+      user_avatar = access_token.info.image.gsub(/http/, "https")
     when "vkontakte"
       url = "https://vk.com/id#{id}"
       user_name = access_token.extra.raw_info.first_name
+      user_avatar = access_token.extra.raw_info.photo_400_orig
     end
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.email = email
       user.name = user_name
+      user.remote_avatar_url = user_avatar
       user.password = Devise.friendly_token.first(16)
     end
   end
