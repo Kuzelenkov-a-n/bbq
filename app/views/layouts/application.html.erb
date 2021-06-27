@@ -49,8 +49,10 @@
       <% end %>
       <%= yield %>
       <footer class="blockquote-footer">
-        <p>&copy; <%= t "app.company" %> 2021</p>
-        <%= link_to "Политика конфиденциальности", info_pages_privacy_policy_path %>
+        <ul>
+          <li>&copy; <%= t "app.company" %> 2021</li>
+          <li><%= link_to I18n.t("controllers.info_pages.privacy_policy"), info_pages_privacy_policy_path %></li>
+        </ul>
       </footer>
     </div>
   </div>

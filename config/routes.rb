@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
 
   get "info_pages/privacy_policy"
+  get "info_pages/delete_instruction"
 end
