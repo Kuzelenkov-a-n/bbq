@@ -1,24 +1,169 @@
-# README
+## Приложение "Барбекю" (RoR)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<a href="https://bbq-kan.ru">bbq-kan.ru</a> (Deployed with ```capistrano```)
 
-Things you may want to cover:
+Приложение для организации мероприятий, встреч с друзьями.
 
-* Ruby version
+### Основные функции приложения:
 
-* System dependencies
+1. Регистрация пользователя
 
-* Configuration
+2. Создание "событий"
+    - название
+    - адрес места проведения
+    - дата и время проведения
+    - описание "события"
+    - пин-код доступа
 
-* Database creation
+3. Подписка на "события" других зарегистрированных пользователей
 
-* Database initialization
+4. Добавление фотографий зарегистрированными пользователями
 
-* How to run the test suite
+5. Комментирование "событий" зарегистрироваными и анонимными пользователями
 
-* Services (job queues, cache servers, search engines, etc.)
+6. Предусмотрена работа с электронной почтой:
+    - рассылка уведомлений
+    - восстановления пароля
 
-* Deployment instructions
+7. Возможность редактирования или удаления учетной записи, "событий" и т.д.
+___
+## Основные библиотеки и технологии:
 
-* ...
+### Backend:
+
+1. ```Ruby 2.7.2``` + ```Rails 6.1.3.1```
+
+2. Базы данных:
+    - ```postgresql```(production)
+    - ```sqlite3``` (development)
+
+3. Аутентификация:
+    - ```devise```
+    - ```omniauth-facebook```
+    - ```omniauth-vkontakte```
+
+4. Автризация:
+    - ```pundit```
+
+5. Отправка почты с помощью сервиса *Mailjet*:
+    - ```mailjet```
+
+6. Фоновые задачи (для отправки почты):
+    - ```resque```
+    - ```redis```
+
+### Frontend:
+
+1. CSS-фреймворк:
+   - ```Bootstrap 4.6```
+
+2. Сборщик:
+   - ```webpacker 5.2.1```
+
+3. Визуализация места проведения "события":
+    - ```api-maps.yandex```
+
+4. Дата и время проведения "события":
+    - ```jQuery datepicker```
+
+5. Галерея фотографий:
+    - ```ekko-lightbox```
+    
+6. Защита форм (Google reCAPTCHA):
+    - ```recaptcha```
+
+7. Интернационализация:
+    - ```I18n```
+    
+8. Загрузка и обработка изображений с помощью *Amazon AWS*:
+    - ```fog-aws```
+    - ```carrierwave```
+    - ```rmagick```
+___
+## Для запуска программы:
+
+1. Скачайте все файлы из репозитория или склонируйте его
+2. Предустановите ```ruby 2.7.2```, ```bundler```, ```node```, ```yarn```
+3. Установите необходимые зависимости:
+```
+$ bundle install
+
+$ yarn install
+```
+4. Обновите и пропишите ```credentials``` с необходимыми переменными окружения:
+```
+$ EDITOR=vi rails credentials:edit --environment 'окружение'
+```
+
+**Список переменных окружения:**
+
+*Amazon AWS S3:*
+
+```
+aws:
+  s3_access_key: 'Ваш ключ доступа'
+  s3_secret_key: 'Ваш секретный ключ'
+  s3_bucket_name: 'Название корзины'
+```
+
+*Mailjet (production):*
+
+```
+mailjet:
+  mailjet_api_key: 'Ваш api ключ'
+  mailjet_secret_key: 'Ваш секретный ключ'
+  mailjet_sender: 'Почта'
+```
+
+*Recaptcha:*
+
+```
+recaptcha:
+  recaptcha_site_key: 'Ваш публичный ключ'
+  recaptcha_secret_key: 'Ваш приватный ключ'
+```
+
+*OAuth (Vk, Fb)*
+
+```
+omniauth_vk:
+  omniauth_vkontakte_id: 'Ваш уникальный id'
+  omniauth_vkontakte_secret: 'Ваш секретный ключ'
+
+omniauth_fb:
+  omniauth_facebook_id: 'Ваш уникальный id'
+  omniauth_facebook_secret: 'Ваш секретный ключ'
+```
+
+*Для настройки БД (production):*
+
+```
+production:
+  user: 'Пользователь'
+  password: 'Пароль'
+  database: 'Наименование БД'
+```
+
+5. Прогоните миграции БД:
+
+```
+$ bundle exec rails db:migrate
+```
+
+6. Запуск в **development** окружении:
+
+- В первом окне терминала запустите webpack:
+
+```
+$ bundle exec bin/webpack-dev-server
+```
+
+- Во втором окне терминала запустите rails-сервер:
+
+```
+$ bundle exec rails s
+```
+приложение будет доступно по адресу: http://localhost:3000/
+
+___
+*Автор приложения: Кузеленков Андрей (в рамках прохождения интенсива "Хороший программист")*
