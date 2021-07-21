@@ -272,12 +272,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, Rails.application.credentials[:omniauth_facebook_id],
-                  Rails.application.credentials[:omniauth_facebook_secret],
+  config.omniauth :facebook, Rails.application.credentials.omniauth_fb[:omniauth_facebook_id],
+                  Rails.application.credentials.omniauth_fb[:omniauth_facebook_secret],
                   callback_url: "https://bbq-kan.ru/users/auth/facebook/callback"
 
-  config.omniauth :vkontakte, Rails.application.credentials[:omniauth_vkontakte_id],
-                  Rails.application.credentials[:omniauth_vkontakte_secret],
+  config.omniauth :vkontakte, Rails.application.credentials.omniauth_vk[:omniauth_vkontakte_id],
+                  Rails.application.credentials.omniauth_vk[:omniauth_vkontakte_secret],
                   callback_url: "https://bbq-kan.ru/users/auth/vkontakte/callback",
                   scope: "email, name"
 
