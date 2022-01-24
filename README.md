@@ -1,4 +1,4 @@
-## Приложение "Барбекю" (RoR)
+## Приложение "Meeting-Planner" (RoR)
 
 <a href="https://bbq-kan.ru">bbq-kan.ru</a> (Deployed with ```capistrano```)
 
